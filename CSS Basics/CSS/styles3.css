@@ -1,0 +1,26 @@
+/* article:first-child {
+  font-size: 144%;
+  font-style: italic;
+} */
+
+article p:first-of-type {
+  font-size: 144%;
+  font-style: italic;
+}
+
+article p:last-child {
+  font-weight: bolder;
+}
+ul li:nth-child(odd) {
+  color: darkgoldenrod;
+}
+
+a:visited,
+a:link {
+  color: dodgerblue;
+}
+
+a:hover,
+a:focus {
+  color: rgb(124, 28, 73);
+}
