@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+}
+#products {
+}
+.product {
+}
+/* a[target="_blank"] {
+  color: brown;
+} */
+
+/* a[href = "http://google.com"]
+{
+  color: chocolate;
+} */
+/* orr */
+
+/* a[href*="google"] {
+  color: coral;
+} */
+
+/* orr */
+/* to check it starts with the given value */
+/* a[href^="https"] {
+  color: coral;
+} */
+
+/* orr */
+/* to check it ends with the given value */
+/* a[href$=".com"] {
+  color: coral;
+} */
+
+a[href^="https"][href$=".com"] {
+  color: coral;
+}
