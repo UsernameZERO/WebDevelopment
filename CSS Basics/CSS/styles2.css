@@ -1,0 +1,17 @@
+body {
+  margin: 10px;
+}
+/* #products ~ p {
+  color: rgb(223, 60, 32);
+} */
+
+/* #products + p {
+  color: rgb(223, 60, 32);
+} */
+/* #products > p {
+  color: rgb(223, 60, 32);
+} */
+
+#products p {
+  color: rgb(223, 60, 32);
+}
