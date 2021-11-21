@@ -1,7 +1,25 @@
+**::before,
+*::after {
+  box-sizing: border-box;
+}
+
 .box {
   width: 200px;
   height: 200px;
   background-color: hotpink;
-  padding: 20px;
-  border: 10px solid red;
+  /* padding: 20px;
+  border: 10px solid red; */
+}
+.box1 {
+  width: 200px;
+  height: 200px;
+  background-color: rgb(24, 103, 151);
+  display: inline-block;
+}
+
+.box::before {
+  content: "Hello";
+}
+.box1::before {
+  content: "Hello";
 }
