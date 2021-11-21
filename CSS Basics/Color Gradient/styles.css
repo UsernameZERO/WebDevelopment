@@ -1,0 +1,34 @@
+.box {
+  width: 300px;
+  height: 300px;
+  background-color: cornflowerblue;
+  float: left;
+}
+
+.box1 {
+  width: 300px;
+  height: 300px;
+  background-color: hsl(53deg, 20%, 16%);
+  float: left;
+}
+
+.box2 {
+  width: 300px;
+  height: 300px;
+  background-color: rgba(240, 170, 19, 0.2);
+  float: left;
+}
+
+.box3 {
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(45deg, dodgerblue, rgb(28, 123, 28), tomato);
+  float: left;
+}
+
+.box4 {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(white, yellow);
+  float: left;
+}

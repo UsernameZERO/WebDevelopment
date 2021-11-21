@@ -1,0 +1,24 @@
+.box1 {
+  width: 600px;
+  height: 250px;
+  background-color: slateblue;
+  border: 10px double rgb(202, 31, 31);
+}
+
+.box2 {
+  width: 600px;
+  height: 250px;
+  background-color: salmon;
+  border: 10px double rgb(202, 31, 31);
+  border-top: solid 20px rgb(53, 20, 20);
+}
+
+.box3 {
+  width: 600px;
+  height: 250px;
+  background-color: skyblue;
+  border: 10px dotted rgb(202, 31, 31);
+  border-width: 10px 20px 5px 25px;
+
+  border-radius: 15px;
+}

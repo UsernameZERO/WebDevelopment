@@ -1,0 +1,19 @@
+/* h1 {
+  color: dodgerblue !important;
+} */
+
+.highlight {
+  color: firebrick;
+}
+
+#Products {
+  color: hotpink;
+}
+
+#Products {
+  color: rgb(56, 199, 13);
+}
+
+.highlight#Products {
+  color: lightslategrey;
+}
