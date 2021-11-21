@@ -1,0 +1,10 @@
+/* p {
+  padding: 10px 20px; /* long form 10px 20px 10px 20px */
+/* border: solid 10px gold;
+}
+  */
+
+p {
+  margin: 10px;
+  padding: 0;
+}
