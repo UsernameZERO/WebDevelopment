@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.box {
+  background: orange;
+  padding: 1rem;
+}
+.box:nth-of-type(2) {
+  background: palegoldenrod;
+  padding: 1rem;
+}
+
+@media screen and (min-width: 600px) {
+  .container {
+    flex-direction: row;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .container {
+    flex-direction: row;
+  }
+  .box {
+    background: papayawhip;
+  }
+}
+@media print {
+  body {
+    font-size: 12pt;
+  }
+  .box {
+    padding: 0.5cm;
+  }
+}
