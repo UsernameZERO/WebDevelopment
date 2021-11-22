@@ -1,0 +1,32 @@
+body {
+  margin: 10px;
+  height: 600vh;
+}
+
+.boxes {
+  border: 3px solid grey;
+  position: relative;
+}
+
+.box {
+  width: 5rem;
+  height: 5rem;
+}
+
+.boxes1 {
+  background-color: hotpink;
+  position: relative;
+}
+
+.boxes2 {
+  background-color: rgb(9, 84, 215);
+  position: fixed;
+  left: 5rem;
+  right: 5rem;
+  width: auto;
+}
+
+.boxes3 {
+  background-color: lawngreen;
+  position: relative;
+}
