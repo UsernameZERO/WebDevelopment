@@ -1,0 +1,28 @@
+body {
+  margin: 10px;
+}
+
+.container {
+  border: 0.5rem solid wheat;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* flex-wrap: wrap; */
+  align-items: center;
+  height: 90vh;
+  /* align-content: center; */
+}
+
+.box {
+  flex-basis: 8rem;
+  flex-grow: 1;
+  width: 8rem;
+  height: 8rem;
+  margin: 1rem;
+  background-color: turquoise;
+  flex-shrink: 1;
+}
+.box-1 {
+  flex-grow: initial;
+  flex-shrink: 0;
+}
