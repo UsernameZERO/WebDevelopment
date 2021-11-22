@@ -1,0 +1,19 @@
+.tweet {
+  border: 3px solid rosybrown;
+}
+.tweet::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.avatar {
+  width: 5rem;
+  height: 5rem;
+  background-color: lightskyblue;
+  float: left;
+  margin-right: 0.5rem;
+}
+.clear {
+  clear: left;
+}
