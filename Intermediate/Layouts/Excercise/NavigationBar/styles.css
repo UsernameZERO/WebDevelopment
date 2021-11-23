@@ -42,6 +42,7 @@ a {
   justify-content: center;
   text-decoration: none;
   color: aliceblue;
+  padding: 2px;
 }
 
 @media screen and (min-width: 768px) {
