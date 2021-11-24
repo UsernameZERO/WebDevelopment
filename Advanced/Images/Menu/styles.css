@@ -1,0 +1,45 @@
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 1.5rem;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+li {
+  padding: 1.5rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.fas {
+  margin-right: 1rem;
+  width: 2rem;
+  text-align: center;
+}
+li:hover,
+.active {
+  background: #221a2e;
+  color: #fff;
+}
+
+.menu {
+  background: #2a2138;
+  color: #cfc6dc;
+}
+
+@media screen and (min-width: 768px) {
+  .menu {
+    width: 20%;
+    height: 100vh;
+  }
+}
