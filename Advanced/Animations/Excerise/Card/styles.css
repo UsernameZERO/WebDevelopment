@@ -1,0 +1,48 @@
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.box {
+  max-width: 500px;
+  background: white;
+  transform: rotate(-5deg);
+  font-size: 2rem;
+  box-shadow: 0 0 20px 30px #f9f9f9;
+  border-radius: 30px;
+  font-weight: 600;
+  margin: 0 2rem;
+  transition: transform 0.2s;
+  overflow: hidden;
+}
+.content {
+  margin: 0;
+}
+.box:hover {
+  transform: rotate(0);
+}
+.content,
+.ig {
+  padding: 2rem;
+}
+.ig {
+  align-items: center;
+  background: rgb(92, 191, 187);
+  background: linear-gradient(90deg, #5cbfbb 0%, #74d690 100%);
+  color: #f9f9f9;
+  display: flex;
+  font-weight: bold;
+}
+.cut {
+  border-radius: 100%;
+  border: 4px solid white;
+  height: 60px;
+  margin: 0 1.5rem;
+  transition: transform 0.3s;
+}
+.box:hover,
+.cut {
+  transform: scale(1.15);
+}

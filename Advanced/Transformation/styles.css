@@ -1,0 +1,27 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background: rgb(213, 213, 43);
+  transition: transform 0.5s, background 0.5s;
+}
+.box:hover {
+  transform: rotate(45deg);
+  background: cornflowerblue;
+  /* transform: scale(1.4); */
+  /* transform: skew(-15deg); */
+  /* transform: translate(10px, 20px); */
+
+  /* now 3 transformation to use that we should 
+  use perspective() before attributes */
+
+  /* transform: perspective(100px) rotate(45deg); */
+  /* transform: perspective(100px) translate(10px) rotateY(45deg);
+  transform-origin: 0 50% ; */
+}
