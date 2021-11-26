@@ -1,0 +1,14 @@
+
+.box{
+    height: 200px;
+    width: 200px;
+    background: red;
+    margin: 100px auto;
+    cursor: pointer;
+}
+.box:hover{
+    box-shadow: 0 0 20px rgb(44, 22, 22);
+}
+h2{
+    text-align: center;
+}
