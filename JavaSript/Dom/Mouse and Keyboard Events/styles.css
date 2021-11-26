@@ -1,0 +1,12 @@
+#box{
+    background: brown;
+    width: 250px;
+    height: 250px;
+    margin: 100px auto;
+    padding: 50px;
+    box-sizing: border-box;
+
+}
+#search{
+    border: 1px solid black;
+}
