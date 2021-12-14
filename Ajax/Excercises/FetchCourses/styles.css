@@ -1,0 +1,47 @@
+#cntr{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    margin-top: 20%;
+}
+
+#btn{
+    width: 130px;
+    height: 30px;
+    border-radius: 20px;
+    outline: none;
+}
+
+#courses{
+    display: flex;
+    justify-content: space-around;
+    flex-flow: wrap;
+}
+
+.imaage{
+
+    width: 20rem;
+    margin: 20px 0  20px;
+    border-radius: 2px;
+    box-shadow: 0 0 1px rgb(65, 63, 63);
+}
+
+/* .space{
+    
+} */
+img{
+    width: 20rem;
+   
+}
+
+.details{
+    padding: 10px;
+}
+.names{
+ font-size: 14px;
+}
+
+.right{
+    text-align: right;
+}
