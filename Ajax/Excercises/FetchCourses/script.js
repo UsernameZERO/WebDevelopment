@@ -16,8 +16,8 @@ function newCourses(){
             var img = document.createElement('img');
             img.setAttribute('src',course.preview_image_url);
             img.setAttribute("class","space");
-            img.setAttribute("alt","...");
-            var divv1 = document.createElement('div');
+            img.setAttribute("alt","...")
+        var divv1 = document.createElement('div');
             divv1.setAttribute("class","details");
             var p1 = document.createElement('p');
             var p2 = document.createElement('p');
