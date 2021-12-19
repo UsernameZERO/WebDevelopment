@@ -23,3 +23,22 @@ var promise = new Promise((resolve,reject)=>{
 promise.then(()=>{
     console.log("successfully logged");
 }).catch(()=>{console.log("Not logged");})
+
+// we can write in other way around by taking ina func
+
+function userCheckedIn(){
+    var promise1 = new Promise((resolve,reject)=>{
+
+        setTimeout(() => {
+            if(userLoggedIn) resolve("logged in");
+            else reject();
+        }, 500);
+    });
+    return promise1;
+}
+
+userCheckedIn().then((successful)=>{
+    console.log(successful);
+}).catch(()=>{
+    console.log("Not logged");
+})
