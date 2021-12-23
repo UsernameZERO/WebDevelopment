@@ -10,8 +10,18 @@ app.set('view engine','ejs');
 app.set('views',path.join(__dirname,'views'));
 
 app.get('/',(req,res)=>{
-    return res.render('home');
-})
+    //It is static
+    // return res.render('home');
+
+    //It is dynamic
+    return res.render('home',{title : "My Contact List"});
+});
+
+app.get('/practice',(req,res)=>{
+    return res.render('practice',{
+        title : "Let us play with ejs"
+    });
+});
 
 // app.get('/',(req,res)=>{
 //     console.log(req);
