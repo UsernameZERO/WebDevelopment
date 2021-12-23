@@ -9,12 +9,30 @@ app.set('view engine','ejs');
 
 app.set('views',path.join(__dirname,'views'));
 
+let contactList = [
+    {
+        name:'Zero',
+        phone:'0987654321'
+    },
+    {
+        name:'Vicious',
+        phone:'4448889992'
+    },
+    {
+        name:'LOL',
+        phone:'9900443322'
+    }
+];
+
 app.get('/',(req,res)=>{
     //It is static
     // return res.render('home');
 
     //It is dynamic
-    return res.render('home',{title : "My Contact List"});
+    return res.render('home',{
+        title : "My Contact List",
+        contact_lists: contactList
+});
 });
 
 app.get('/practice',(req,res)=>{
