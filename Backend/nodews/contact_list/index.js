@@ -4,6 +4,7 @@ const path = require('path');
 const port = 4444;
 
 const db = require('./config/mongoose');
+const Contact = require('./model/contact');
 
 const app = express();
 app.set('view engine','ejs');
@@ -79,11 +80,24 @@ app.post('/create_contacts',(req,res)=>{
 //    });
 
 //We can write in other way as well
-    contactList.push(req.body);
+    // contactList.push(req.body);
+
+    //To push into database
+    Contact.create({
+        name:req.body.name,
+        phone:req.body.phone
+    },(err,newContact)=>{
+        if(err){
+            console.log('Error is in creating contact!!');
+             return;
+        }
+        console.log('*******',newContact);
+        return res.redirect('back');
+    });
 
 //    return res.redirect('/');
 // if the path is large then we can use
-    return res.redirect('back');
+    // return res.redirect('back');
 })
 
 // app.get('/',(req,res)=>{
