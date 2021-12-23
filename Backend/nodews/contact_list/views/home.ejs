@@ -15,5 +15,11 @@
         <%}%>
       </ul>
     </div>
+
+    <form action="/create_contacts" method="post">
+      <input type="text" name="name" placeholder="Enter Name" required />
+      <input type="number" name="phone" placeholder="Enter Phone" required />
+      <button type="submit">Add Contact</button>
+    </form>
   </body>
 </html>

@@ -5,6 +5,7 @@ const port = 4444;
 
 
 const app = express();
+app.use(express.urlencoded());
 app.set('view engine','ejs');
 
 app.set('views',path.join(__dirname,'views'));
@@ -40,6 +41,20 @@ app.get('/practice',(req,res)=>{
         title : "Let us play with ejs"
     });
 });
+
+app.post('/create_contacts',(req,res)=>{
+//    contactList.push({
+//        name:req.body.name,
+//        phone:req.body.phone,
+//    });
+
+//We can write in other way as well
+    contactList.push(req.body);
+
+//    return res.redirect('/');
+// if the path is large then we can use
+    return res.redirect('back');
+})
 
 // app.get('/',(req,res)=>{
 //     console.log(req);
