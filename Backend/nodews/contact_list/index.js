@@ -3,11 +3,14 @@ const express = require('express');
 const path = require('path');
 const port = 4444;
 
+const db = require('./config/mongoose');
 
 const app = express();
-
- app.use(express.urlencoded());
+app.set('view engine','ejs');
+app.set('views',path.join(__dirname,'views'));
+app.use(express.urlencoded());
 app.use(express.static('Assets'));
+
 // //Creating middleware 1
 // app.use((req,res,next)=>{
 //     console.log('Middileware 1 is called');
@@ -20,9 +23,6 @@ app.use(express.static('Assets'));
 //     next();
 // })
 
-app.set('view engine','ejs');
-
-app.set('views',path.join(__dirname,'views'));
 
 let contactList = [
     {
