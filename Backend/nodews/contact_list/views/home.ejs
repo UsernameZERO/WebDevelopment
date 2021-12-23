@@ -15,15 +15,22 @@
     <div id="Lists">
       <ul>
         <% for(let i of contact_lists) { %>
-        <li>
-          <p><%= i.name %></p>
-          <p><%= i.phone%></p>
+        <li class="contact">
+          <div class="details">
+            <p><%= i.name %></p>
+            <p><%= i.phone%></p>
+          </div>
+          <div class="delete-btn">
+            <a href="/delete-contact/?phone=<%= i.phone %>"
+              ><i class="fas fa-trash"></i
+            ></a>
+          </div>
         </li>
         <%}%>
       </ul>
     </div>
 
-    <form action="/create_contacts" method="post">
+    <form id="contact-form" action="/create_contacts" method="post">
       <input
         class="fields"
         type="text"

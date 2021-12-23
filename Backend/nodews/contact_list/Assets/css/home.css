@@ -17,21 +17,36 @@ body{
     width: 350px;
    
 }
-li{
-   list-style: none;
-   display: flex;
-   justify-content: space-between;
-   background-color: bisque;
-   padding-left: 10px;
-   padding-right: 10px;
-   margin-bottom: 3px;
+.contact{
+    display: flex;
+    list-style: none;
+    background-color: bisque;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 3px;
+    cursor: pointer;
+}
+
+.details{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 90%;
+}
+.delete-btn{
+   width: 5%;
+   margin: auto;
+}
+.delete-btn a{
+    color: crimson;
 }
 p{
     font-size: 1.2rem;
     font-family: monospace;
 }
 
-li:hover{
+.contact:hover{
     background-color: rgb(156, 122, 71);
 }
 ul{
@@ -39,7 +54,7 @@ ul{
   padding-left: 0%; 
 }
 
-form{
+#contact-form{
     text-align: center;
     margin-top: 10px;
 }

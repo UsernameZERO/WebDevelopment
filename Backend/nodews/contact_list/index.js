@@ -6,7 +6,7 @@ const port = 4444;
 
 const app = express();
 
-app.use(express.urlencoded());
+ app.use(express.urlencoded());
 app.use(express.static('Assets'));
 // //Creating middleware 1
 // app.use((req,res,next)=>{
@@ -55,6 +55,22 @@ app.get('/practice',(req,res)=>{
         title : "Let us play with ejs"
     });
 });
+
+//For deleting a contact
+app.get('/delete-contact',(req,res)=>{
+    // Only by params
+    // console.log(req.params);
+    // let phone = req.params.phone;
+    //By Query
+
+    let phone = req.query.phone;
+
+    let index = contactList.findIndex(contact => contact.phone == phone );
+    if(index != -1){
+         contactList.splice(index,1);
+    }
+    return res.redirect('back');
+})
 
 app.post('/create_contacts',(req,res)=>{
 //    contactList.push({
