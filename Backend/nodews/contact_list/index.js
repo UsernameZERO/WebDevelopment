@@ -7,17 +7,18 @@ const port = 4444;
 const app = express();
 
 app.use(express.urlencoded());
-//Creating middleware 1
-app.use((req,res,next)=>{
-    console.log('Middileware 1 is called');
-    next();
-})
+app.use(express.static('Assets'));
+// //Creating middleware 1
+// app.use((req,res,next)=>{
+//     console.log('Middileware 1 is called');
+//     next();
+// })
 
-//Crreating middleware 2
-app.use((req,res,next)=>{
-    console.log('Middileware 2 is called');
-    next();
-})
+// //Crreating middleware 2
+// app.use((req,res,next)=>{
+//     console.log('Middileware 2 is called');
+//     next();
+// })
 
 app.set('view engine','ejs');
 
