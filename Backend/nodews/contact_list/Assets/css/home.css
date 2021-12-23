@@ -1,4 +1,55 @@
 
 body{
+   margin:0%;
+   font-family: sans-serif;
+}
+
+#page-header{
+    margin-top: 50px;
     text-align: center;
+    font-size: 2rem;
+    letter-spacing: 3px;
+}
+
+#Lists{
+    /* text-align: center; */
+   margin: auto;
+    width: 350px;
+   
+}
+li{
+   list-style: none;
+   display: flex;
+   justify-content: space-between;
+   background-color: bisque;
+   padding-left: 10px;
+   padding-right: 10px;
+   margin-bottom: 3px;
+}
+p{
+    font-size: 1.2rem;
+    font-family: monospace;
+}
+
+li:hover{
+    background-color: rgb(156, 122, 71);
+}
+ul{
+    margin: 0%;
+  padding-left: 0%; 
+}
+
+form{
+    text-align: center;
+    margin-top: 10px;
+}
+.fields{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+button{
+    background-color: cadetblue;
+    outline: none;
+    border-radius: 1px;
 }

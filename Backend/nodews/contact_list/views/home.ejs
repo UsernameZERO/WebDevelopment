@@ -1,12 +1,18 @@
 <html>
   <head>
     <title><%= title%></title>
+    <script
+      src="https://kit.fontawesome.com/6e3ab34902.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="css/home.css" />
   </head>
   <body>
-    <h1>Rendered from ejs -- > Contact lists</h1>
+    <h1 id="page-header">
+      <i class="fas fa-address-book"></i> My Contacts Lists
+    </h1>
 
-    <div>
+    <div id="Lists">
       <ul>
         <% for(let i of contact_lists) { %>
         <li>
@@ -18,9 +24,21 @@
     </div>
 
     <form action="/create_contacts" method="post">
-      <input type="text" name="name" placeholder="Enter Name" required />
-      <input type="number" name="phone" placeholder="Enter Phone" required />
-      <button type="submit">Add Contact</button>
+      <input
+        class="fields"
+        type="text"
+        name="name"
+        placeholder=" Name"
+        required
+      />
+      <input
+        class="fields"
+        type="number"
+        name="phone"
+        placeholder=" Phone"
+        required
+      />
+      <button type="submit">Add</button>
     </form>
 
     <script type="text/javascript" src="/js/home.js"></script>
