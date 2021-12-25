@@ -44,11 +44,21 @@ app.get('/',(req,res)=>{
     //It is static
     // return res.render('home');
 
+    Contact.find({},function(err,contacts){
+        if (err) {
+            console.log('Error in fetching the contacts data from DB.');
+            return;
+        }
+        return res.render('home',{
+            title : "My Contact List",
+            contact_lists: contacts
+    });
+    })
     //It is dynamic
-    return res.render('home',{
-        title : "My Contact List",
-        contact_lists: contactList
-});
+//     return res.render('home',{
+//         title : "My Contact List",
+//         contact_lists: contactList
+// });
 });
 
 app.get('/practice',(req,res)=>{
