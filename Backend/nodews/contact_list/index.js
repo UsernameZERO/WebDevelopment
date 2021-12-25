@@ -74,13 +74,23 @@ app.get('/delete-contact',(req,res)=>{
     // let phone = req.params.phone;
     //By Query
 
-    let phone = req.query.phone;
+    // let phone = req.query.phone;
 
-    let index = contactList.findIndex(contact => contact.phone == phone );
-    if(index != -1){
-         contactList.splice(index,1);
-    }
-    return res.redirect('back');
+    //To delete by id from the db
+    let id = req.query.id;
+
+    Contact.findByIdAndDelete(id,function(err){
+        if (err) {
+            console.log('error in deleting an object from database');
+            return;
+        }
+        return res.redirect('back');
+    });
+    // let index = contactList.findIndex(contact => contact.phone == phone );
+    // if(index != -1){
+    //      contactList.splice(index,1);
+    // }
+    // return res.redirect('back');
 })
 
 app.post('/create_contacts',(req,res)=>{
