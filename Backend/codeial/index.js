@@ -5,7 +5,7 @@ const port = 4444;
 //To Use Routers separately
 app.use('/',require('./routes'));
 
-//To set views
+//To set views engine
 app.set('view engine','ejs');
 app.set('views','./views');
 
