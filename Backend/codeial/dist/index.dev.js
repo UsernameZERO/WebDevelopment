@@ -5,7 +5,10 @@ var express = require('express');
 var app = express();
 var port = 4444; //To Use Routers separately
 
-app.use('/', require('./routes')); //To check server is coonected or not
+app.use('/', require('./routes')); //To set views
+
+app.set('view engine', 'ejs');
+app.set('views', './views'); //To check server is coonected or not
 
 app.listen(port, function (err) {
   if (err) {

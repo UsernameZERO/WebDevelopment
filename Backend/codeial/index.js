@@ -5,6 +5,10 @@ const port = 4444;
 //To Use Routers separately
 app.use('/',require('./routes'));
 
+//To set views
+app.set('view engine','ejs');
+app.set('views','./views');
+
 //To check server is coonected or not
 app.listen(port,(err)=>{
     if (err) {
