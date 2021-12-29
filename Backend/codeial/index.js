@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const port = 4444;
 const expressLayouts = require('express-ejs-layouts');
-
+app.use(express.static('./assets'));
 app.use(expressLayouts);
 //To Use Routers separately
 app.use('/',require('./routes'));
