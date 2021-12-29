@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/contact_lists_db');
 
 //Acquire connection (to check if it is successfull)
-const db = mongoose.connection
+const db = mongoose.connection;
 
 //error
 db.on('error',console.error.bind(console,'error connecting to db'));
