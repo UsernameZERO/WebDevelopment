@@ -5,7 +5,9 @@ var express = require('express');
 var app = express();
 var port = 4444;
 
-var expressLayouts = require('express-ejs-layouts'); //Static files
+var expressLayouts = require('express-ejs-layouts');
+
+var db = require('./config/mongoose'); //Static files
 
 
 app.use(express["static"]('./assets')); //To use in head and footer separately
