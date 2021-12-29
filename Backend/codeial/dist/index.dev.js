@@ -3,7 +3,11 @@
 var express = require('express');
 
 var app = express();
-var port = 4444; //To Use Routers separately
+var port = 4444;
+
+var expressLayouts = require('express-ejs-layouts');
+
+app.use(expressLayouts); //To Use Routers separately
 
 app.use('/', require('./routes')); //To set views engine
 
