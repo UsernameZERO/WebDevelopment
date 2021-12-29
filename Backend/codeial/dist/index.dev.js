@@ -5,9 +5,13 @@ var express = require('express');
 var app = express();
 var port = 4444;
 
-var expressLayouts = require('express-ejs-layouts');
+var expressLayouts = require('express-ejs-layouts'); //Static files
 
-app.use(express["static"]('./assets'));
+
+app.use(express["static"]('./assets')); //To use in head and footer separately
+
+app.set('layout extractStyles', true);
+app.set('layout extractScripts', true);
 app.use(expressLayouts); //To Use Routers separately
 
 app.use('/', require('./routes')); //To set views engine
