@@ -2,13 +2,17 @@
 
 var express = require('express');
 
+var cookieParser = require('cookie-parser');
+
 var app = express();
 var port = 4444;
 
 var expressLayouts = require('express-ejs-layouts');
 
-var db = require('./config/mongoose'); //Static files
+var db = require('./config/mongoose');
 
+app.use(express.urlencoded());
+app.use(cookieParser()); //Static files
 
 app.use(express["static"]('./assets')); //To use in head and footer separately
 
