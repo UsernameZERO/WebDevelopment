@@ -55,7 +55,7 @@ module.exports.create_signup = function (req, res) {
           return;
         }
 
-        return res.redirect('/users/login');
+        return res.redirect('/users/signin');
       });
     } else {
       return res.redirect('back');
@@ -89,4 +89,9 @@ module.exports.create_signin = function (req, res) {
       return res.redirect('back');
     }
   });
-};
+}; // module.exports.signOut = (res,req)=>{
+//    // console.log(req.cookie.user_id);
+//     req.cookie('user_id',"");
+//     res.clearCookie('user_id');
+//     return res.redirect('/users/signin');
+// }

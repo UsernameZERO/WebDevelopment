@@ -28,6 +28,7 @@ module.exports.signUp=(req,res)=>{
         title : 'signup',
     })
 };
+
 module.exports.login=(req,res)=>{
     return res.render('login',{
         title : 'login',
@@ -49,7 +50,7 @@ module.exports.create_signup = (req,res)=>{
                     console.log('error in creating user in signing up');
                     return;
                 }
-                return res.redirect('/users/login');
+                return res.redirect('/users/signin');
             });
         }else{
             return res.redirect('back');
@@ -79,7 +80,11 @@ module.exports.create_signin = (req,res)=>{
             return res.redirect('back');
         }
     });
-  
-   
-
 }
+
+// module.exports.signOut = (res,req)=>{
+//    // console.log(req.cookie.user_id);
+//     req.cookie('user_id',"");
+//     res.clearCookie('user_id');
+//     return res.redirect('/users/signin');
+// }
