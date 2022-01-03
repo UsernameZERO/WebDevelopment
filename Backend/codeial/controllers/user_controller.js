@@ -5,18 +5,18 @@ module.exports.profile = (req,res)=>{
 
     return res.render('profile',{
         title : 'profile',
-    })
+    });
 };
 
 module.exports.signUp=(req,res)=>{
     return res.render('signup',{
         title : 'signup',
-    })
+    });
 };
 module.exports.login=(req,res)=>{
     return res.render('login',{
         title : 'login',
-    })
+    });
 };
 
 module.exports.create_signup = (req,res)=>{
@@ -41,6 +41,8 @@ module.exports.create_signup = (req,res)=>{
         }
     });
 }
+
+
 module.exports.create_signin = (req,res)=>{
 
 }
