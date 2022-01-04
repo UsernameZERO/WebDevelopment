@@ -6,7 +6,7 @@ module.exports.profile = (req,res)=>{
     // return res.render('profile',{
     //     title : 'profile',
     // })
-
+    console.log(req.cookies);
     if(req.cookies.user_id){
         User.findById(req.cookies.user_id,(err,user)=>{
            if (user) {
@@ -82,9 +82,9 @@ module.exports.create_signin = (req,res)=>{
     });
 }
 
-// module.exports.signOut = (res,req)=>{
-//    // console.log(req.cookie.user_id);
-//     req.cookie('user_id',"");
-//     res.clearCookie('user_id');
-//     return res.redirect('/users/signin');
-// }
+module.exports.signout = function(req,res){
+    console.log(req.cookies);
+    console.log(req.cookies.user_id)
+    res.clearCookie("user_id");
+    res.redirect('/users/signin');
+}
