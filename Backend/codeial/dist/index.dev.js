@@ -18,6 +18,9 @@ var passport = require('passport');
 
 var passportLocal = require('./config/passport-local-strategy');
 
+var MongoStore = require('connect-mongo')(session); // Used connect-mongo@3 for installation
+
+
 app.use(express.urlencoded());
 app.use(cookieParser()); //Static files
 
@@ -28,7 +31,7 @@ app.set('layout extractScripts', true);
 app.use(expressLayouts); //To set views engine
 
 app.set('view engine', 'ejs');
-app.set('views', './views'); // To encrypt 
+app.set('views', './views'); // To encrypt && Mongo store is used to store the session cookies
 
 app.use(session({
   name: 'codeial',
@@ -38,7 +41,14 @@ app.use(session({
   resave: false,
   cookie: {
     maxAge: 1000 * 60 * 100
-  }
+  },
+  store: new MongoStore({
+    mongooseConnection: db,
+    //Connected to db
+    autoRemove: 'disabled'
+  }, function (err) {
+    console.log(err || 'connect-mongodb setup ok');
+  })
 }));
 app.use(passport.initialize());
 app.use(passport.session());
