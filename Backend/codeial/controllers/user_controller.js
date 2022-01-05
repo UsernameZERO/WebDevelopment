@@ -57,3 +57,8 @@ module.exports.create_signup = (req,res)=>{
 module.exports.create_signin = (req,res)=>{
 return res.redirect('/');
 }
+
+module.exports.signout = (req,res)=>{
+    req.logout();// it is to remove the cookie that was used through passport library
+    return res.redirect('/');
+}

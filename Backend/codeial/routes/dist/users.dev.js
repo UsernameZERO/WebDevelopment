@@ -16,4 +16,5 @@ router.post('/create-signup', usersController.create_signup); //Use passport as 
 router.post('/create-signin', passport.authenticate('local', {
   failureRedirect: '/users/login'
 }), usersController.create_signin);
+router.get('/signout', usersController.signout);
 module.exports = router;
