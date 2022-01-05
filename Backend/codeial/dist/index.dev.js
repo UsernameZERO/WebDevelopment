@@ -9,7 +9,14 @@ var port = 4444;
 
 var expressLayouts = require('express-ejs-layouts');
 
-var db = require('./config/mongoose');
+var db = require('./config/mongoose'); //Used for session cookie
+
+
+var session = require('express-session');
+
+var passport = require('passport');
+
+var passportLocal = require('./config/passport-local-strategy');
 
 app.use(express.urlencoded());
 app.use(cookieParser()); //Static files
@@ -18,12 +25,25 @@ app.use(express["static"]('./assets')); //To use in head and footer separately
 
 app.set('layout extractStyles', true);
 app.set('layout extractScripts', true);
-app.use(expressLayouts); //To Use Routers separately
-
-app.use('/', require('./routes')); //To set views engine
+app.use(expressLayouts); //To set views engine
 
 app.set('view engine', 'ejs');
-app.set('views', './views'); //To check server is coonected or not
+app.set('views', './views'); // To encrypt 
+
+app.use(session({
+  name: 'codeial',
+  //TODO change the secret before deployment in production mode
+  secret: "kbckbdca",
+  saveUninitialized: false,
+  resave: false,
+  cookie: {
+    maxAge: 1000 * 60 * 100
+  }
+}));
+app.use(passport.initialize());
+app.use(passport.session()); //To Use Routers separately
+
+app.use('/', require('./routes')); //To check server is coonected or not
 
 app.listen(port, function (err) {
   if (err) {

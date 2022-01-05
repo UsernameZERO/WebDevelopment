@@ -49,4 +49,6 @@ module.exports.create_signup = function (req, res) {
   });
 };
 
-module.exports.create_signin = function (req, res) {};
+module.exports.create_signin = function (req, res) {
+  return res.redirect('/');
+};

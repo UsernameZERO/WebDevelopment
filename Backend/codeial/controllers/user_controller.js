@@ -44,5 +44,5 @@ module.exports.create_signup = (req,res)=>{
 
 
 module.exports.create_signin = (req,res)=>{
-
+return res.redirect('/');
 }
