@@ -26,4 +26,20 @@ passport.use(new LocalStrategy({
 
     return done(null, user);
   });
-}));
+})); //Serializing the user which key is used to be kept in the cookies
+
+passport.serializeUser(function (user, done) {
+  done(null, user.id);
+}); //Deserializing the user from the key in the cookies
+
+passport.deserializeUser(function (id, done) {
+  User.findById(id, function (err, user) {
+    if (err) {
+      console.log('Error in finding user --> passport');
+      return done(err);
+    }
+
+    return done(null, user);
+  });
+});
+module.exports = passport;
