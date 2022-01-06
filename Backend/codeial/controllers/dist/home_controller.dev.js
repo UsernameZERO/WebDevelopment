@@ -1,14 +1,22 @@
 "use strict";
 
+var Post = require("../models/posts");
+
 module.exports.home = function (req, res) {
   // without using ejs we write in this way whether it is checking or not
   //return res.end('<h1>Express is in Codeial</h1>');
   //To use ejs
-  return res.render('home', {
-    title: "Home"
+  // Post.find({},(err,posts)=>{
+  //     return res.render('home',{
+  //         title:"Codieal | Home",
+  //         posts : posts
+  //     });
+  // })
+  // populate the user of each post
+  Post.find({}).populate('user').exec(function (err, posts) {
+    return res.render('home', {
+      title: "Codieal | Home",
+      posts: posts
+    });
   });
-};
-
-module.exports.sign = function (req, res) {
-  return res.send('<h1>You can sign up here</h1>');
 };
