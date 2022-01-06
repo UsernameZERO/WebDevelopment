@@ -1,3 +1,5 @@
+
+
 module.exports.home = function(req,res){
 
     // without using ejs we write in this way whether it is checking or not
@@ -7,6 +9,9 @@ module.exports.home = function(req,res){
    return res.render('home',{
        title:"Home",
    });
+
+   
+
 }
 
 module.exports.sign = (req,res)=>{
