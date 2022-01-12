@@ -1,0 +1,17 @@
+#signup-main {
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10%; }
+  #signup-main input {
+    width: 15vw;
+    padding: 4px;
+    margin-top: 5px;
+    border-radius: 20px;
+    outline: none;
+    text-align: center;
+    border: 1.3px solid black; }
+  #signup-main button {
+    padding: 5px;
+    margin-top: 5px; }

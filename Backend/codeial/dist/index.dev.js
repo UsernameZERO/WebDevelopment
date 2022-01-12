@@ -21,6 +21,15 @@ var passportLocal = require('./config/passport-local-strategy');
 var MongoStore = require('connect-mongo')(session); // Used connect-mongo@3 for installation
 
 
+var sassMiddleWare = require('node-sass-middleware');
+
+app.use(sassMiddleWare({
+  src: './assets/scss',
+  dest: './assets/css',
+  debug: true,
+  outputStyle: 'extended',
+  prefix: '/css'
+}));
 app.use(express.urlencoded());
 app.use(cookieParser()); //Static files
 

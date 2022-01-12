@@ -1,0 +1,25 @@
+#top {
+  background-color: #0062ff;
+  display: flex;
+  height: 50px;
+  justify-content: space-between;
+}
+#top h2 {
+  margin-top: 7px;
+  color: #e4e4e2;
+  padding-left: 4px;
+}
+#top ul {
+  padding-right: 14px;
+  list-style: none;
+  text-decoration: none;
+}
+#top ul .headli {
+  display: inline-flex;
+}
+#top ul .headli a {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #f3f3f3;
+}
