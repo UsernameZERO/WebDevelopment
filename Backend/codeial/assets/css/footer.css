@@ -1,0 +1,18 @@
+footer {
+  background-color: aquamarine;
+  height: 10vh; }
+  footer #divfooter {
+    display: flex; }
+    footer #divfooter h3 {
+      font-weight: 500; }
+    footer #divfooter .fa-copyright {
+      padding-left: 3px;
+      padding-right: 3px; }
+    footer #divfooter #link {
+      display: inline-flex;
+      flex-direction: column;
+      padding-left: 50px;
+      justify-content: space-evenly; }
+      footer #divfooter #link a {
+        text-decoration: none;
+        color: black; }
