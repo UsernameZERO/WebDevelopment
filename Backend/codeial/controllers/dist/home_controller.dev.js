@@ -2,6 +2,8 @@
 
 var Post = require("../models/posts");
 
+var User = require('../models/users');
+
 module.exports.home = function (req, res) {
   // without using ejs we write in this way whether it is checking or not
   //return res.end('<h1>Express is in Codeial</h1>');
@@ -19,9 +21,12 @@ module.exports.home = function (req, res) {
       path: 'user'
     }
   }).exec(function (err, posts) {
-    return res.render('home', {
-      title: "Home",
-      posts: posts
+    User.find({}, function (err, users) {
+      return res.render('home', {
+        title: "Home",
+        posts: posts,
+        all_users: users
+      });
     });
   });
 };

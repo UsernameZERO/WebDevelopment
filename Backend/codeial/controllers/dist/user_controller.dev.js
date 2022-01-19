@@ -4,8 +4,11 @@ var User = require("../models/users");
 
 module.exports.profile = function (req, res) {
   // return res.end('<h1>Users Profile</h1>');
-  return res.render('profile', {
-    title: 'profile'
+  User.findById(req.params.id, function (err, user) {
+    return res.render('profile', {
+      title: 'profile',
+      profile_user: user
+    });
   });
 };
 

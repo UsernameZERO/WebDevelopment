@@ -1,26 +1,14 @@
-footer {
-  background-color: aquamarine;
+#layout-footer {
+  color: white;
+  background: grey;
   padding: 5px 10px;
   display: flex;
   justify-content: flex-start;
 }
-footer #divfooter {
-  display: flex;
-}
-footer #divfooter h3 {
-  font-weight: 500;
-}
-footer #divfooter .fa-copyright {
-  padding-left: 3px;
-  padding-right: 3px;
-}
-footer #divfooter #link {
-  display: inline-flex;
-  flex-direction: column;
-  padding-left: 50px;
-  justify-content: space-evenly;
-}
-footer #divfooter #link a {
+#layout-footer a {
+  color: white;
   text-decoration: none;
-  color: black;
+}
+#layout-footer .footer-nav ul {
+  list-style: none;
 }
