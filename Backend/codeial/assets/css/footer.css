@@ -1,6 +1,8 @@
 footer {
   background-color: aquamarine;
-  height: 10vh; }
+  padding: 5px 10px;
+  display: flex;
+  justify-content: flex-start; }
   footer #divfooter {
     display: flex; }
     footer #divfooter h3 {
