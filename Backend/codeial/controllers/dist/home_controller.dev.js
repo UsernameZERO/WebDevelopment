@@ -12,7 +12,7 @@ module.exports.home = function _callee(req, res) {
         case 0:
           _context.prev = 0;
           _context.next = 3;
-          return regeneratorRuntime.awrap(Post.find({}).populate('user').populate({
+          return regeneratorRuntime.awrap(Post.find({}).sort('-createdAt').populate('user').populate({
             path: 'comments',
             populate: {
               path: 'user'
