@@ -1,24 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%= title%></title>
+    <title><%= title %></title>
     <link rel="stylesheet" href="/css/layout.css" />
     <link rel="stylesheet" href="/css/header.css" />
     <link rel="stylesheet" href="/css/footer.css" />
     <link rel="stylesheet" href="/css/login.css" />
     <link rel="stylesheet" href="/css/signup.css" />
-    <%- style%>
-    <script
-      src="https://kit.fontawesome.com/6e3ab34902.js"
-      crossorigin="anonymous"
-    ></script>
+
+    <%- style %>
   </head>
+
   <body>
-    <%-include('_header');%>
-    <main id="l-main"><%- body %></main>
-    <%-include('_footer');%> <%- script%>
+    <%- include('_header'); %>
+
+    <main id="layout-main"><%- body %></main>
+
+    <%- include('_footer'); %> <%- script %>
   </body>
 </html>
