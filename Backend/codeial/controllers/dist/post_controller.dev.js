@@ -65,7 +65,7 @@ module.exports.destroy = function _callee2(req, res) {
           post = _context2.sent;
 
           if (!(post.user == req.user.id)) {
-            _context2.next = 12;
+            _context2.next = 14;
             break;
           }
 
@@ -76,27 +76,40 @@ module.exports.destroy = function _callee2(req, res) {
           }));
 
         case 8:
+          if (!req.xhr) {
+            _context2.next = 10;
+            break;
+          }
+
+          return _context2.abrupt("return", res.status(200).json({
+            data: {
+              post_id: req.params.id
+            },
+            message: "Post deleted successfully"
+          }));
+
+        case 10:
           req.flash('success', 'post and comments in the post, deleted');
           return _context2.abrupt("return", res.redirect('back'));
 
-        case 12:
+        case 14:
           req.flash('error', 'you cannot delete this post');
           return _context2.abrupt("return", res.redirect('back'));
 
-        case 14:
-          _context2.next = 20;
+        case 16:
+          _context2.next = 22;
           break;
 
-        case 16:
-          _context2.prev = 16;
+        case 18:
+          _context2.prev = 18;
           _context2.t0 = _context2["catch"](0);
           req.flash("error", _context2.t0);
           return _context2.abrupt("return");
 
-        case 20:
+        case 22:
         case "end":
           return _context2.stop();
       }
     }
-  }, null, null, [[0, 16]]);
+  }, null, null, [[0, 18]]);
 };
