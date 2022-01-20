@@ -23,6 +23,10 @@ var MongoStore = require('connect-mongo')(session); // Used connect-mongo@3 for 
 
 var sassMiddleWare = require('node-sass-middleware');
 
+var flash = require('connect-flash');
+
+var customMiddleware = require('./config/middleware');
+
 app.use(sassMiddleWare({
   src: './assets/scss',
   dest: './assets/css',
@@ -61,7 +65,11 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(passport.setAuthenticatedUser); //To Use Routers separately
+app.use(passport.setAuthenticatedUser); //we have to use place flash after express session and passport session middleware
+
+app.use(flash());
+app.use(customMiddleware.setFlash); //created middleware for flash
+//To Use Routers separately
 
 app.use('/', require('./routes')); //To check server is coonected or not
 

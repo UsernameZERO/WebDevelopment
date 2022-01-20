@@ -68,10 +68,12 @@ module.exports.create_signup = (req,res)=>{
 
 
 module.exports.create_signin = (req,res)=>{
+    req.flash('success','Logged in Successfully');
 return res.redirect('/');
 }
 
 module.exports.signout = (req,res)=>{
     req.logout();// it is to remove the cookie that was used through passport library
+    req.flash('success','You have Logged out ');
     return res.redirect('/');
 }
