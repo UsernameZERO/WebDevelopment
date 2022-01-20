@@ -17,20 +17,21 @@ module.exports.create = function _callee(req, res) {
           }));
 
         case 3:
+          req.flash('success', 'Posted successfully');
           return _context.abrupt("return", res.redirect('back'));
 
-        case 6:
-          _context.prev = 6;
+        case 7:
+          _context.prev = 7;
           _context.t0 = _context["catch"](0);
-          console.log("ERROR", _context.t0);
+          req.flash("error", _context.t0);
           return _context.abrupt("return");
 
-        case 10:
+        case 11:
         case "end":
           return _context.stop();
       }
     }
-  }, null, null, [[0, 6]]);
+  }, null, null, [[0, 7]]);
 }; //To delete a post
 
 
@@ -48,7 +49,7 @@ module.exports.destroy = function _callee2(req, res) {
           post = _context2.sent;
 
           if (!(post.user == req.user.id)) {
-            _context2.next = 11;
+            _context2.next = 12;
             break;
           }
 
@@ -59,24 +60,27 @@ module.exports.destroy = function _callee2(req, res) {
           }));
 
         case 8:
-          return _context2.abrupt("return", res.redirect('back'));
-
-        case 11:
+          req.flash('success', 'post and comments in the post, deleted');
           return _context2.abrupt("return", res.redirect('back'));
 
         case 12:
-          _context2.next = 17;
-          break;
+          req.flash('error', 'you cannot delete this post');
+          return _context2.abrupt("return", res.redirect('back'));
 
         case 14:
-          _context2.prev = 14;
-          _context2.t0 = _context2["catch"](0);
-          console.log('Error', _context2.t0);
+          _context2.next = 20;
+          break;
 
-        case 17:
+        case 16:
+          _context2.prev = 16;
+          _context2.t0 = _context2["catch"](0);
+          req.flash("error", _context2.t0);
+          return _context2.abrupt("return");
+
+        case 20:
         case "end":
           return _context2.stop();
       }
     }
-  }, null, null, [[0, 14]]);
+  }, null, null, [[0, 16]]);
 };

@@ -22,7 +22,7 @@ module.exports.create = function _callee(req, res) {
           _post = _context.sent;
 
           if (!_post) {
-            _context.next = 11;
+            _context.next = 12;
             break;
           }
 
@@ -40,24 +40,25 @@ module.exports.create = function _callee(req, res) {
 
           _post.save();
 
+          req.flash('success', 'comment added to post');
           res.redirect('/');
 
-        case 11:
-          _context.next = 17;
+        case 12:
+          _context.next = 18;
           break;
 
-        case 13:
-          _context.prev = 13;
+        case 14:
+          _context.prev = 14;
           _context.t0 = _context["catch"](0);
-          console.log('ERROR', _context.t0);
+          req.flash('error', _context.t0);
           return _context.abrupt("return");
 
-        case 17:
+        case 18:
         case "end":
           return _context.stop();
       }
     }
-  }, null, null, [[0, 13]]);
+  }, null, null, [[0, 14]]);
 }; //Deleting the comment
 
 
@@ -76,40 +77,42 @@ module.exports.destroyc = function _callee2(req, res) {
           comment = _context2.sent;
 
           if (!(comment.user == req.user.id)) {
-            _context2.next = 13;
+            _context2.next = 14;
             break;
           }
 
           postId = comment.post;
           comment.remove();
-          _context2.next = 9;
+          req.flash('success', 'comment removed');
+          _context2.next = 10;
           return regeneratorRuntime.awrap(Post.findByIdAndUpdate(postId, {
             $pull: {
               comments: req.params.id
             }
           }));
 
-        case 9:
+        case 10:
           _post2 = _context2.sent;
           return _context2.abrupt("return", res.redirect('back'));
 
-        case 13:
+        case 14:
+          req.flash('error', 'you cannot remove comment');
           return _context2.abrupt("return", res.redirect('back'));
 
-        case 14:
-          _context2.next = 20;
+        case 16:
+          _context2.next = 22;
           break;
 
-        case 16:
-          _context2.prev = 16;
+        case 18:
+          _context2.prev = 18;
           _context2.t0 = _context2["catch"](0);
-          console.log('ERROR', _context2.t0);
+          req.flash('error', 'err');
           return _context2.abrupt("return");
 
-        case 20:
+        case 22:
         case "end":
           return _context2.stop();
       }
     }
-  }, null, null, [[0, 16]]);
+  }, null, null, [[0, 18]]);
 };
