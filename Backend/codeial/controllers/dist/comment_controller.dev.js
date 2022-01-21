@@ -8,7 +8,7 @@ var _require = require('../routes/posts'),
     post = _require.post;
 
 module.exports.create = function _callee(req, res) {
-  var _post, comment;
+  var _post, comment, userData;
 
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
@@ -22,7 +22,7 @@ module.exports.create = function _callee(req, res) {
           _post = _context.sent;
 
           if (!_post) {
-            _context.next = 12;
+            _context.next = 18;
             break;
           }
 
@@ -40,25 +40,48 @@ module.exports.create = function _callee(req, res) {
 
           _post.save();
 
+          _context.next = 12;
+          return regeneratorRuntime.awrap(Post.findOne({
+            user: req.user._id
+          }).populate('user').exec());
+
+        case 12:
+          userData = _context.sent;
+
+          if (!req.xhr) {
+            _context.next = 16;
+            break;
+          }
+
+          console.log('comment in req xhr');
+          return _context.abrupt("return", res.status(200).json({
+            data: {
+              comment: comment,
+              userName: userData
+            },
+            message: "Comment created!"
+          }));
+
+        case 16:
           req.flash('success', 'comment added to post');
           res.redirect('/');
 
-        case 12:
-          _context.next = 18;
+        case 18:
+          _context.next = 24;
           break;
 
-        case 14:
-          _context.prev = 14;
+        case 20:
+          _context.prev = 20;
           _context.t0 = _context["catch"](0);
           req.flash('error', _context.t0);
           return _context.abrupt("return");
 
-        case 18:
+        case 24:
         case "end":
           return _context.stop();
       }
     }
-  }, null, null, [[0, 14]]);
+  }, null, null, [[0, 20]]);
 }; //Deleting the comment
 
 
@@ -77,42 +100,56 @@ module.exports.destroyc = function _callee2(req, res) {
           comment = _context2.sent;
 
           if (!(comment.user == req.user.id)) {
-            _context2.next = 14;
+            _context2.next = 16;
             break;
           }
 
           postId = comment.post;
           comment.remove();
-          req.flash('success', 'comment removed');
-          _context2.next = 10;
+          _context2.next = 9;
           return regeneratorRuntime.awrap(Post.findByIdAndUpdate(postId, {
             $pull: {
               comments: req.params.id
             }
           }));
 
-        case 10:
+        case 9:
           _post2 = _context2.sent;
-          return _context2.abrupt("return", res.redirect('back'));
 
-        case 14:
-          req.flash('error', 'you cannot remove comment');
+          if (!req.xhr) {
+            _context2.next = 12;
+            break;
+          }
+
+          return _context2.abrupt("return", res.status(200).json({
+            data: {
+              comment_id: req.params.id
+            },
+            message: "Comment deleted"
+          }));
+
+        case 12:
+          req.flash('success', 'comment removed');
           return _context2.abrupt("return", res.redirect('back'));
 
         case 16:
-          _context2.next = 22;
-          break;
+          req.flash('error', 'you cannot remove comment');
+          return _context2.abrupt("return", res.redirect('back'));
 
         case 18:
-          _context2.prev = 18;
+          _context2.next = 24;
+          break;
+
+        case 20:
+          _context2.prev = 20;
           _context2.t0 = _context2["catch"](0);
           req.flash('error', 'err');
           return _context2.abrupt("return");
 
-        case 22:
+        case 24:
         case "end":
           return _context2.stop();
       }
     }
-  }, null, null, [[0, 18]]);
+  }, null, null, [[0, 20]]);
 };

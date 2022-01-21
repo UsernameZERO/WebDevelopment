@@ -7,13 +7,25 @@ module.exports.create = async (req,res)=>{
         let post = await Post.findById(req.body.post);
 
         if(post){
-             let comment = await Comment.create({
+            let comment = await Comment.create({
                 content: req.body.content,
                 user: req.user._id,
                 post: req.body.post,
             });
                 post.comments.push(comment);
                 post.save();
+
+                let userData = await Post.findOne({user : req.user._id}).populate('user').exec();
+                if(req.xhr){
+                  console.log('comment in req xhr');
+                    return res.status(200).json({
+                        data: {
+                            comment: comment,
+                            userName: userData
+                        },
+                        message: "Comment created!"
+                    });
+                }
                 req.flash('success','comment added to post');
                 res.redirect('/');
         }
@@ -35,11 +47,20 @@ module.exports.destroyc = async (req,res)=>{
             let postId = comment.post;
 
             comment.remove();
+            
+            let post = await Post.findByIdAndUpdate(postId,{ $pull: {comments: req.params.id}});
+                
+            if (req.xhr){
+                return res.status(200).json({
+                    data: {
+                        comment_id: req.params.id
+                    },
+                    message: "Comment deleted"
+                });
+            }
             req.flash('success','comment removed');
+            return res.redirect('back');
 
-           let post = await Post.findByIdAndUpdate(postId,{ $pull: 
-                {comments: req.params.id}});
-                return res.redirect('back');
         }else {
             req.flash('error','you cannot remove comment');
         return res.redirect('back');

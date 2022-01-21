@@ -5,7 +5,7 @@ var Post = require('../models/posts');
 var Comment = require('../models/comment');
 
 module.exports.create = function _callee(req, res) {
-  var post;
+  var post, userData;
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
@@ -19,35 +19,43 @@ module.exports.create = function _callee(req, res) {
 
         case 3:
           post = _context.sent;
+          _context.next = 6;
+          return regeneratorRuntime.awrap(Post.findOne({
+            user: req.user._id
+          }).populate('user').exec());
+
+        case 6:
+          userData = _context.sent;
 
           if (!req.xhr) {
-            _context.next = 6;
+            _context.next = 9;
             break;
           }
 
           return _context.abrupt("return", res.status(200).json({
             data: {
-              post: post
+              post: post,
+              userName: userData.user.name
             },
             message: "Post is created!"
           }));
 
-        case 6:
+        case 9:
           req.flash('success', 'Posted successfully');
           return _context.abrupt("return", res.redirect('back'));
 
-        case 10:
-          _context.prev = 10;
+        case 13:
+          _context.prev = 13;
           _context.t0 = _context["catch"](0);
           req.flash("error", _context.t0);
           return _context.abrupt("return");
 
-        case 14:
+        case 17:
         case "end":
           return _context.stop();
       }
     }
-  }, null, null, [[0, 10]]);
+  }, null, null, [[0, 13]]);
 }; //To delete a post
 
 
