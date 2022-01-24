@@ -1,4 +1,6 @@
 const User = require("../models/users");
+const fs = require('fs');
+const path = require('path');
 
 module.exports.profile = (req,res)=>{
     // return res.end('<h1>Users Profile</h1>');
@@ -33,6 +35,9 @@ module.exports.update = async (req,res)=>{
                 user.email = req.body.email;
 
                 if (req.file) {
+                    if (user.avatar) { // deleting or replacing a user image
+                        fs.unlinkSync(path.join(__dirname,'..',user.avatar));// userSchema.statics.avatarPath = AVATAR_PATH go to user file in model
+                    }
                     //This is saving the path of the upload file into the avatar field in the user
                     user.avatar = User.avatarPath + '/' + req.file.filename;
                 }
