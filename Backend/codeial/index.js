@@ -27,6 +27,8 @@ app.use(cookieParser());
 
 //Static files
 app.use(express.static('./assets'));
+//Making the upload path available to browser
+app.use('/uploads',express.static(__dirname+'/uploads'));
 
 //To use in head and footer separately
 app.set('layout extractStyles',true);
