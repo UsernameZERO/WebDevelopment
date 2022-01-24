@@ -1,3 +1,10 @@
 body {
   background-color: cadetblue;
+  margin-top: 1.5 rem;
+}
+body img {
+  padding: 1rem;
+}
+body form {
+  padding-left: 1.6rem;
 }
