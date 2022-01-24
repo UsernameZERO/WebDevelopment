@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const mutler = require('multer'); // for file uploads
+const multer = require('multer'); // for file uploads
 const { join } = require('path');
 const path = require('path');
 const AVATAR_PATH = path.join('/uploads/users/avatars');
@@ -25,7 +25,7 @@ const userSchema = mongoose.Schema({
     timestamps: true
 });
 
-const storage = multer.diskStorage({
+let storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, path.join(__dirname,'..',AVATAR_PATH));
     },

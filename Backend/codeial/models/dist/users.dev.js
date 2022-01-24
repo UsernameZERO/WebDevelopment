@@ -2,7 +2,7 @@
 
 var mongoose = require('mongoose');
 
-var mutler = require('multer'); // for file uploads
+var multer = require('multer'); // for file uploads
 
 
 var _require = require('path'),
