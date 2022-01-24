@@ -2,6 +2,10 @@
 
 var User = require("../models/users");
 
+var fs = require('fs');
+
+var path = require('path');
+
 module.exports.profile = function (req, res) {
   // return res.end('<h1>Users Profile</h1>');
   User.findById(req.params.id, function (err, user) {
@@ -38,7 +42,12 @@ module.exports.update = function _callee(req, res) {
             user.email = req.body.email;
 
             if (req.file) {
-              //This is saving the path of the upload file into the avatar field in the user
+              if (user.avatar) {
+                // deleting or replacing a user image
+                fs.unlinkSync(path.join(__dirname, '..', user.avatar)); // userSchema.statics.avatarPath = AVATAR_PATH go to user file in model
+              } //This is saving the path of the upload file into the avatar field in the user
+
+
               user.avatar = User.avatarPath + '/' + req.file.filename;
             } // console.log(req.file);// to check whether uploaded or not when uploaded
 
