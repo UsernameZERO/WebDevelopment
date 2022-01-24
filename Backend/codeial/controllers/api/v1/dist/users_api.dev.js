@@ -33,7 +33,7 @@ module.exports.create_signin = function _callee(req, res) {
             message: "Sign in successfull, here is token keep it safe",
             data: {
               token: jwt.sign(user.toJSON(), 'codeial', {
-                expiresIn: '10000'
+                expiresIn: '100000'
               })
             }
           }));

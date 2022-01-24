@@ -13,7 +13,7 @@ module.exports.create_signin = async (req,res)=>{
         return res.json(200,{
             message: "Sign in successfull, here is token keep it safe",
             data: {
-                token: jwt.sign(user.toJSON(), 'codeial', {expiresIn: '10000'})
+                token: jwt.sign(user.toJSON(), 'codeial', {expiresIn: '100000'})
             }
         })
     } catch (err) {

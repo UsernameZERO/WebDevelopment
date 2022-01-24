@@ -9,7 +9,7 @@ var ExtractJWT = require('passport-jwt').ExtractJwt;
 var User = require('../models/users');
 
 var opts = {
-  jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken,
+  jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
   secretOrKey: 'codeial'
 };
 passport.use(new JWTStrategy(opts, function (jwtPayload, done) {
