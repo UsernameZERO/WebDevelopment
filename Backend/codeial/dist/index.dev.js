@@ -18,6 +18,9 @@ var passport = require('passport');
 
 var passportLocal = require('./config/passport-local-strategy');
 
+var passportJWT = require('./config/passport-jwt-strategy'); //for JWT Authentication
+
+
 var MongoStore = require('connect-mongo')(session); // Used connect-mongo@3 for installation
 
 
