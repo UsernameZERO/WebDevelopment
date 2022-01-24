@@ -39,6 +39,11 @@ var storage = multer.diskStorage({
     var uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
     cb(null, file.fieldname + '-' + uniqueSuffix);
   }
-});
+}); //static
+
+userSchema.statics.uploadedAvatar = multer({
+  storage: storage
+}).single('avatar');
+userSchema.statics.avatarPath = AVATAR_PATH;
 var User = mongoose.model('User', userSchema);
 module.exports = User;
