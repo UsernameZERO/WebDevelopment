@@ -22,22 +22,33 @@ module.exports.update = function _callee(req, res) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
+          console.log("updateeeee", req.body); // if(req.user.id == req.params.id){
+          //     User.findByIdAndUpdate(req.params.id,req.body,(err,user)=>{
+          //         return res.redirect('back');
+          //     });
+          // }
+          // else{
+          //     return res.status(401).send('Unauthorised');
+          // }
+
           if (!(req.user.id == req.params.id)) {
-            _context.next = 14;
+            _context.next = 16;
             break;
           }
 
-          _context.prev = 1;
-          _context.next = 4;
+          _context.prev = 2;
+          _context.next = 5;
           return regeneratorRuntime.awrap(User.findById(req.params.id));
 
-        case 4:
+        case 5:
           user = _context.sent;
+          console.log("kbkbk", req.body);
           User.uploadedAvatar(req, res, function (err) {
             if (err) {
               console.log('****Multer ERROR: ', err);
             }
 
+            console.log(req.body);
             user.name = req.body.name;
             user.email = req.body.email;
 
@@ -55,29 +66,29 @@ module.exports.update = function _callee(req, res) {
             user.save();
             return res.redirect('back');
           });
-          _context.next = 12;
+          _context.next = 14;
           break;
 
-        case 8:
-          _context.prev = 8;
-          _context.t0 = _context["catch"](1);
+        case 10:
+          _context.prev = 10;
+          _context.t0 = _context["catch"](2);
           req.flash("error", _context.t0);
           return _context.abrupt("return", res.redirect('back'));
 
-        case 12:
-          _context.next = 16;
+        case 14:
+          _context.next = 18;
           break;
 
-        case 14:
+        case 16:
           req.flash('error', 'Unauthorized');
           return _context.abrupt("return", res.status(401).send('Unauthorized'));
 
-        case 16:
+        case 18:
         case "end":
           return _context.stop();
       }
     }
-  }, null, null, [[1, 8]]);
+  }, null, null, [[2, 10]]);
 };
 
 module.exports.signUp = function (req, res) {

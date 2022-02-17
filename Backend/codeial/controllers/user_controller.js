@@ -14,6 +14,7 @@ module.exports.profile = (req,res)=>{
 };
 
 module.exports.update = async (req,res)=>{
+    console.log("updateeeee", req.body);
     // if(req.user.id == req.params.id){
     //     User.findByIdAndUpdate(req.params.id,req.body,(err,user)=>{
     //         return res.redirect('back');
@@ -27,10 +28,12 @@ module.exports.update = async (req,res)=>{
         try {
             
             let user = await User.findById(req.params.id);
+            console.log("kbkbk",req.body);
             User.uploadedAvatar(req,res,function(err){
                 if (err) {
                     console.log('****Multer ERROR: ',err );
                 }
+                console.log(req.body);
                 user.name = req.body.name;
                 user.email = req.body.email;
 
